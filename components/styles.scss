@@ -1,0 +1,171 @@
+@import url(/components/mixins.css);
+@import url(/components/reset.css);
+ 
+@mixin mobile {
+    @media ( min-width: 600px){ @content; }
+}
+@mixin tablet {
+    @media ( min-width: 768px){ @content; }
+}
+@mixin latop {
+    @media ( min-width: 1024px){ @content; }
+}
+@mixin high-res {
+    @media ( min-width: 1444px){ @content; }
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    background-color: white;
+    z-index: 4;
+    width: 100%;
+}
+.header_center{
+    padding: 1.5rem;
+    width: 100%;
+    
+   
+    @include mobile {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+.header_menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header_img{
+    width: 100px;
+    height: auto;
+}
+.header_svg{
+    width: 30px;
+    height: 30px;
+    @include mobile () {
+        display: none;
+    }
+}
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow: hidden;
+    width: 100%;
+    height: 0vh;
+    transition: all .3s ease-in;
+    z-index: 3;
+
+    @include mobile ( ){
+        height: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+        transition: none;
+        
+    }
+    
+}
+.activo{
+    
+    height: 100vh;
+}
+.header_ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 2rem 0;
+    background-color: rgb(255, 255, 255);
+    @include mobile (){
+        flex-direction: row;
+        padding: .7rem 0;
+    }
+    
+}
+.header_li{
+    padding: .7rem 0;
+    font-weight: 600;
+    @include mobile (){
+        padding: 0 .7rem;
+    }
+}
+.nav_info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @include mobile (){
+        display: none;
+    }
+}
+.nav_info_rrss{
+    display: flex;
+
+}
+.nav_info_rrss img{
+    width: 30px;
+    margin-left: 1rem;
+    margin-top: 1.5rem;
+
+}
+.main{
+    height: 2000px;
+    
+    
+}
+
+.portada{
+
+    background-image: url("https://cdn.pixabay.com/photo/2020/04/06/18/48/madrid-5010803_1280.jpg");
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1.5rem ;
+    animation-name: desplazamiento;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    filter: saturate(0%);
+    
+
+    
+    
+
+}
+@keyframes desplazamiento{
+    0%{ background-position:  right;
+        
+    }
+    50%{ background-position: center;
+        background-image: url("https://cdn.pixabay.com/photo/2019/02/12/19/52/madrid-3993066_1280.jpg");
+         
+
+    }
+    100%{ background-position:  left;
+        background-image: url("https://cdn.pixabay.com/photo/2018/09/01/12/27/crystal-palace-3646683_1280.jpg");
+    }
+}
+.portada p{
+    font-size: 2rem;
+    font-weight: 300;
+    padding: 0 1rem;
+    color: white;
+    line-height: 3rem;
+    text-shadow: 1px 1px 5px black;
+    @include mobile (){
+        max-width: 70%;
+        
+    }
+    @include latop (){
+        max-width: 50%;
+    }
+    @include high-res (){
+        max-width: 30%;
+    }
+}
