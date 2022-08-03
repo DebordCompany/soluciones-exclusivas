@@ -57,14 +57,14 @@
     overflow: hidden;
     width: 100%;
     height: 0vh;
-    transition: all .3s ease-in;
-    z-index: 3;
+    transition: all 0.3s ;
+    
 
     @include mobile ( ){
         height: 100%;
         flex-direction: row;
         justify-content: flex-end;
-        transition: none;
+        
         
     }
     
@@ -110,11 +110,6 @@
     margin-top: 1.5rem;
 
 }
-.main{
-    height: 2000px;
-    
-    
-}
 
 .portada{
 
@@ -132,6 +127,9 @@
     animation-iteration-count: infinite;
     animation-direction: alternate;
     filter: saturate(0%);
+    @include tablet(){
+        height: 70vh;
+    }
     
 
     
@@ -168,4 +166,188 @@
     @include high-res (){
         max-width: 30%;
     }
+}
+
+.nosotros{
+    padding: 4rem 1.5rem;
+    @include mobile (){
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+}
+.nosotros_h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.nosotros_text{
+    margin-top: 2rem;
+}
+
+.servicios{
+    @include mobile (){
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+}
+.servicios_p{
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0 1.5rem;
+}
+.servicios_container{
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    padding-left: 1.5rem;
+   
+    
+
+}
+.servicios_container>div{
+    margin-top: 1rem;
+    width: fit-content;
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 5rem ;
+    
+    @include latop (){
+        width: 100%;
+        padding-right: 1rem;
+    }
+    
+}
+.servicios_square{
+    width: 20rem;
+    height: 25rem;
+    margin-right: 2rem;
+    border-radius: 13px;
+    scroll-snap-align: center;
+    background: #ffffff;
+    box-shadow:  20px 20px 40px #e0e0e0,
+             -20px -20px 40px #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    @include latop(){
+        height: 30rem;
+    }
+    @include high-res(){
+        height: 25rem;
+    }
+}
+.square_imagen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.square_imagen p{
+    margin-top: 1.5rem;
+    
+}
+.square_imagen img{
+    max-width: 6rem;
+}
+.square_btn{
+    margin: 1rem 0;
+    background-color: blue;
+    color: white;
+    border-radius: .3rem;
+    padding: 1rem;
+}
+
+.contacto{
+    margin-top: 2rem;
+    padding: 0 1.5rem ;
+    margin-bottom: 10rem;
+    @include mobile(){
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+}
+.contacto_img{
+    display: none;
+    
+    @include tablet(){
+        display: block;
+        background-image: url("https://cdn.pixabay.com/photo/2020/05/10/19/07/gloves-5155220_1280.jpg");
+        background-position: center;
+        width: 70%;
+        height: 600px;
+        border-radius: .3rem;
+        position: absolute;
+        top: 150px;
+        right: 50px;
+        z-index: 1;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.contacto_img p{
+    display: none;
+    @include latop(){
+        display: block;
+        width: 50%;
+        text-shadow: 1px 1px 3px black;
+        font-size: 2rem;
+        font-weight: 400;
+        line-height: 2.5rem;
+    }
+}
+.contacto_h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.contacto_form{
+    margin-top: 2rem;
+    @include mobile(){
+        margin-top: 4rem;
+        background-color: white;
+        border-radius: .3rem;
+        width: 350px;
+        height: 100%;
+        box-shadow:  20px 20px 40px -10px #2525257d;     
+        padding: 2rem;
+        z-index: 2;
+        position: relative;
+    }
+}
+.contacto_form_input{
+    border: 1px solid rgba(0, 0, 0, 0.734);
+    border-radius: .3rem;
+    margin: 1.5rem 0;
+    width: 100%;
+    padding: 1rem;
+    @include mobile(){
+        border: 1px solid rgba(0, 0, 0, 0.734);
+        border-radius: .3rem;
+    }
+    @include tablet(){
+        margin: .5rem 0;
+        padding: .3rem;
+    }
+}
+.size{
+    height: 7rem;
+}
+.contacto_form_submit{
+    background-color: blue;
+    border-radius: .3rem;
+    padding: 1rem;
+    color: white;
+    width: 10rem;
+    margin-top: 3rem;
+}
+.footer{
+    width: 100%;
+    height: 500px;
+    background-color: black;
+    margin-top: 10rem;
 }
