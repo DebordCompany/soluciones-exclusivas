@@ -14,6 +14,10 @@
     @media ( min-width: 1444px){ @content; }
 }
 
+$azul : #0B39FC;
+
+
+
 .header{
     display: flex;
     justify-content: center;
@@ -57,7 +61,7 @@
     overflow: hidden;
     width: 100%;
     height: 0vh;
-    transition: all 0.3s ;
+    transition: all 0.3s ease-in ;
     
 
     @include mobile ( ){
@@ -70,8 +74,7 @@
     
 }
 .activo{
-    
-    height: 100vh;
+        height: 100vh;
 }
 .header_ul{
     display: flex;
@@ -111,9 +114,30 @@
 
 }
 
+.telefono{
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    border-radius: 3rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: #0B39FC;
+    z-index: 15;
+    @include high-res(){
+        right: 25rem;
+        bottom: 5rem;
+    }
+}
+.telefono img{
+    width: 100%;
+    height: 100%;
+    padding: 1.2rem;
+    
+}
+
 .portada{
 
-    background-image: url("https://cdn.pixabay.com/photo/2020/04/06/18/48/madrid-5010803_1280.jpg");
+    background-image: url("/assets/madrid-1.jpeg");
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -141,12 +165,12 @@
         
     }
     50%{ background-position: center;
-        background-image: url("https://cdn.pixabay.com/photo/2019/02/12/19/52/madrid-3993066_1280.jpg");
+        background-image: url("/assets/madrid-2.webp");
          
 
     }
     100%{ background-position:  left;
-        background-image: url("https://cdn.pixabay.com/photo/2018/09/01/12/27/crystal-palace-3646683_1280.jpg");
+        background-image: url("/assets/madrid-3.jpeg");
     }
 }
 .portada p{
@@ -195,6 +219,15 @@
     font-size: 1.5rem;
     font-weight: 600;
     padding: 0 1.5rem;
+    
+    
+}
+.servicios_title{
+    display: flex;
+    align-items: center;
+}
+.servicios_arrow{
+    width: 30px;
 }
 .servicios_container{
     overflow: auto;
@@ -210,6 +243,7 @@
     display: flex;
     padding-top: 2rem;
     padding-bottom: 5rem ;
+
     
     @include latop (){
         width: 100%;
@@ -218,25 +252,25 @@
     
 }
 .servicios_square{
-    width: 20rem;
-    height: 25rem;
-    margin-right: 2rem;
+    width: 18rem;
+    height: 30rem;
+    margin-right: 1.5rem;
     border-radius: 13px;
     scroll-snap-align: center;
     background: #ffffff;
     box-shadow:  20px 20px 40px #e0e0e0,
              -20px -20px 40px #ffffff;
-
+    border: .5px solid rgb(189, 189, 189);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
     @include latop(){
-        height: 30rem;
+        height: 32rem;
     }
     @include high-res(){
-        height: 25rem;
+        height: 32rem;
     }
 }
 .square_imagen{
@@ -249,12 +283,18 @@
     margin-top: 1.5rem;
     
 }
+.square_imagen h2{
+    margin-top: 2rem;
+    font-weight: 500;
+    font-size: 1.3rem;
+    text-align: left;
+}
 .square_imagen img{
     max-width: 6rem;
 }
 .square_btn{
     margin: 1rem 0;
-    background-color: blue;
+    background-color: $azul;
     color: white;
     border-radius: .3rem;
     padding: 1rem;
@@ -275,7 +315,7 @@
     
     @include tablet(){
         display: block;
-        background-image: url("https://cdn.pixabay.com/photo/2020/05/10/19/07/gloves-5155220_1280.jpg");
+        background-image: url("/assets/guantes.png");
         background-position: center;
         width: 70%;
         height: 600px;
@@ -288,6 +328,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        box-shadow: 0px 0px 40px -11px rgb(137, 137, 137);
     }
 }
 .contacto_img p{
@@ -307,7 +348,7 @@
 }
 .contacto_form{
     margin-top: 2rem;
-    @include mobile(){
+    @include tablet(){
         margin-top: 4rem;
         background-color: white;
         border-radius: .3rem;
@@ -338,7 +379,7 @@
     height: 7rem;
 }
 .contacto_form_submit{
-    background-color: blue;
+    background-color: $azul;
     border-radius: .3rem;
     padding: 1rem;
     color: white;
@@ -348,6 +389,112 @@
 .footer{
     width: 100%;
     height: 500px;
-    background-color: black;
+    background-color: rgb(30, 30, 30);
     margin-top: 10rem;
+    padding: 4rem 1.5rem;
+}
+.footer_max-res{
+    @include mobile(){
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+.footer_p{
+    color: white;
+    padding: .7rem;
+  
+    
+}
+.footer_rrss{
+    display: flex;
+    margin-top: 2rem;
+}
+.footer_rrss_img{
+    width: 30px;
+    margin: .7rem;
+}
+
+// paginas secundarias
+
+.encabezado{
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:  0 1.5rem ;
+    position: relative;
+}
+.encabezado_p{
+    color: white;
+    font-size: 2rem;
+    text-shadow: 1px 1px 3px black;
+    max-width: 11rem;
+    line-height: 3rem;
+    position: absolute;
+    @include tablet(){
+        max-width: 17rem;
+        font-size: 3rem;
+        
+    }
+}
+.encabezado_img{
+    width: 100%;
+    height: 75vh;
+}
+.encabezado_img img{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    @include latop(){
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+.info{
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+   
+    @include latop(){
+        width: 50%;
+        
+    }
+}
+
+.info_h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+    @include latop(){
+        margin-top: 2rem;
+    }
+}
+.info_p{
+    margin-top: 2rem;
+    
+}
+.info_imagen{
+    margin-top: 2rem;
+    border-radius: .3rem;
+    overflow: hidden;
+    @include latop(){
+        
+    }
+}
+.reverse{
+    @include latop(){
+        flex-direction: column-reverse;
+    }
+    
+}
+.footer_pages{
+    margin-top: 0;
 }
